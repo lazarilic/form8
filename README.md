@@ -39,6 +39,13 @@ Paleta:
 
 Fontovi: Anton (naslovi), Archivo (tekst), JetBrains Mono (oznake i vremena).
 
+## Preview
+
+Sajt je okačen na GitHub Pages: https://lazarilic.github.io/form8/
+
+To je preview sa placeholder podacima, pa je zaključan za pretraživače
+(`noindex` u oba HTML-a i `Disallow: /` u `robots.txt`).
+
 ## Šta fali pre puštanja u rad
 
 - [ ] pravi WhatsApp broj u `wa.me` linkovima
@@ -47,4 +54,5 @@ Fontovi: Anton (naslovi), Archivo (tekst), JetBrains Mono (oznake i vremena).
 - [ ] video loop u herou umesto privremene fotografije
 - [ ] prave fotografije i klipovi umesto placeholder blokova
 - [ ] potvrditi cene i termine sa školom, trenutno su iz makete
-- [ ] domen u `canonical`, `hreflang`, `og:url` i `sitemap.xml` ako nije `form8.rs`
+- [ ] pravi domen u `canonical`, `hreflang`, `og:url` i `sitemap.xml`, sada pokazuju na Pages preview
+- [ ] skinuti `noindex` iz oba HTML-a i `Disallow: /` iz `robots.txt`
