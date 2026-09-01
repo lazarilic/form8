@@ -280,13 +280,21 @@ img.group__ph {
   display: flex; align-items: center; gap: 10px;
 }
 .panel__foot span:first-child { color: var(--acid); font-size: 14px; }
-.panel__street { font-family: var(--mono); font-size: 12.5px; color: var(--text); letter-spacing: .06em; }
+.panel__street {
+  font-family: var(--mono); font-size: 12.5px; color: var(--text); letter-spacing: .06em;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line);
+}
+.panel__street:hover { color: var(--acid); text-decoration-color: var(--acid-dim); }
 
 .map {
-  position: relative; min-height: 420px;
-  background: repeating-linear-gradient(135deg, #191919 0 12px, #141414 12px 24px);
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 420px;
   border: 1px solid var(--line);
+  background: repeating-linear-gradient(135deg, #191919 0 12px, #141414 12px 24px);
 }
+.map__canvas { position: relative; min-height: 340px; background: #101010; }
 .map__grid {
   position: absolute; inset: 0;
   background:
@@ -298,20 +306,85 @@ img.group__ph {
   font-family: var(--mono); font-size: 11px;
   color: var(--text-faint); letter-spacing: .1em;
 }
+
+.map__legend {
+  display: flex; flex-wrap: wrap; gap: 10px 20px;
+  margin: 0; padding: 14px 16px; list-style: none;
+  background: var(--ink); border-top: 1px solid var(--line);
+}
 .map__pin {
-  position: absolute;
-  display: flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 11.5px; color: #e4e0d6;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: #e4e0d6;
 }
 .map__pin::before {
-  content: ""; width: 14px; height: 14px; border-radius: 50%;
-  background: var(--acid); box-shadow: 0 0 0 6px rgba(63,239,225,.18);
-  flex: none;
+  content: ""; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--acid-dim); flex: none;
 }
 .map__pin:hover { color: var(--acid); }
-.map__pin--1 { top: 34%; left: 58%; }
-.map__pin--2 { top: 24%; left: 22%; }
-.map__pin--3 { top: 70%; left: 38%; }
+.map__pin[aria-current="true"] { color: var(--acid); }
+.map__pin[aria-current="true"]::before {
+  background: var(--acid); box-shadow: 0 0 0 5px rgba(63,239,225,.18);
+}
+
+/* Leaflet, prilagodjen tamnoj temi.
+   leaflet.css se ubacuje iz JS-a, dakle posle ovog fajla, pa svako pravilo
+   ide kroz .map da bi bilo specificnije od Leafletovog. */
+
+/* OSM tajlovi su svetli, filter ih obrce u tamne. Markeri, kontrole i popup
+   su u drugim panama, filter ih ne dira. */
+.map .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(.88) contrast(.8) grayscale(.75);
+}
+
+.map .leaflet-container {
+  background: #101010;
+  font-family: var(--body); font-size: 13px;
+}
+.map .leaflet-container a { color: var(--acid); }
+.map .leaflet-bar { border: 0; box-shadow: none; }
+.map .leaflet-bar a, .map .leaflet-bar a:hover {
+  background: #161616; color: var(--paper);
+  border-bottom-color: var(--line);
+}
+.map .leaflet-bar a:hover { color: var(--acid); }
+.map .leaflet-bar a.leaflet-disabled { background: #121212; color: var(--text-faint); }
+.map .leaflet-container .leaflet-control-attribution {
+  background: rgba(13,13,13,.82); color: var(--text-faint);
+  font-family: var(--mono); font-size: 10px;
+}
+.map .leaflet-control-attribution a { color: var(--text-dim); }
+
+.map .map__marker { background: none; border: 0; }
+.map__marker__dot {
+  position: absolute; top: 0; left: 0;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--acid); border: 3px solid var(--ink);
+  box-shadow: 0 0 0 4px rgba(63,239,225,.2);
+}
+.map__marker__label {
+  position: absolute; top: 50%; left: 24px; transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--paper);
+  text-shadow: 0 1px 3px #000, 0 0 10px #000;
+}
+.map__marker:hover .map__marker__label { color: var(--acid); }
+
+.map .leaflet-popup-content-wrapper, .map .leaflet-popup-tip {
+  background: var(--ink-2); color: var(--paper);
+  border: 1px solid var(--line); border-radius: 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,.5);
+}
+.map .leaflet-popup-content { margin: 12px 14px; }
+.map .leaflet-popup-close-button { color: var(--text-dim); }
+.map .leaflet-popup-close-button:hover { color: var(--acid); }
+.map__pop-name {
+  display: block; font-family: var(--mono); font-size: 12px; font-weight: 400;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--acid);
+}
+.map__pop-addr { display: block; margin: 4px 0 8px; color: var(--text); }
+.map__pop-link { font-size: 12.5px; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- galerija ---------- */
 
@@ -389,7 +462,8 @@ img.group__ph {
 
 @media (max-width: 1040px) {
   .schedule { grid-template-columns: 1fr; }
-  .map { min-height: 300px; }
+  .map { min-height: 340px; }
+  .map__canvas { min-height: 300px; }
   .outro { grid-template-columns: 1fr; }
   .gallery { grid-auto-rows: 150px; }
 }
