@@ -11,7 +11,11 @@ index.html          srpska verzija
 en/index.html       engleska verzija
 assets/css/site.css sav CSS
 assets/js/site.js   tabovi za raspored (progressive enhancement)
-assets/img/         logo i privremena hero fotografija
+assets/img/brand/   logo i favicon
+assets/img/hero/    privremena hero fotografija
+assets/img/groups/  fotografije grupa
+assets/img/gallery/ galerija, još prazno
+docs/slike.md       pravila za slike: imena, dimenzije, isecanje
 robots.txt
 sitemap.xml
 ```
@@ -52,7 +56,7 @@ To je preview sa placeholder podacima, pa je zaključan za pretraživače
 - [ ] pravi Instagram i TikTok handle
 - [ ] adrese sve tri sale, pa dopuniti JSON-LD sa `streetAddress`, `geo` i `telephone`
 - [ ] video loop u herou umesto privremene fotografije
-- [ ] prave fotografije i klipovi umesto placeholder blokova
+- [ ] prave fotografije i klipovi u galeriji umesto placeholder blokova
 - [ ] potvrditi cene i termine sa školom, trenutno su iz makete
 - [ ] pravi domen u `canonical`, `hreflang`, `og:url` i `sitemap.xml`, sada pokazuju na Pages preview
 - [ ] skinuti `noindex` iz oba HTML-a i `Disallow: /` iz `robots.txt`

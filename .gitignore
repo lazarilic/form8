@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 node_modules/
+
+# originali fotografija: isečke pravimo iz njih, sami originali ne idu u repo
+assets/img/groups/originals/
