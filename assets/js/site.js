@@ -56,3 +56,30 @@
     });
   });
 })();
+
+// Hero video: poster nosi prvi prikaz, fajl se skida tek posle load-a.
+(function () {
+  'use strict';
+
+  var video = document.querySelector('[data-hero]');
+  if (!video) return;
+
+  var conn = navigator.connection || {};
+  if (conn.saveData) return;
+  if (/(^|-)2g$/.test(conn.effectiveType || '')) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function start() {
+    var narrow = window.matchMedia('(max-width: 700px)').matches;
+    video.src = narrow ? video.dataset.narrow : video.dataset.wide;
+    video.muted = true;
+    video.addEventListener('playing', function () {
+      video.classList.add('is-playing');
+    }, { once: true });
+    var played = video.play();
+    if (played && played.catch) played.catch(function () {});
+  }
+
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+})();

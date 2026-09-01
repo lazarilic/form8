@@ -28,13 +28,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="preload" as="image" href="assets/img/hero/hero-poster.jpg" media="(min-width: 701px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero/hero-poster-640.jpg" media="(max-width: 700px)" fetchpriority="high">
 
 <!-- TODO pre puštanja u rad:
      1. zameniti broj u wa.me linkovima pravim WhatsApp brojem
      2. zameniti Instagram i TikTok handle
      3. dopuniti JSON-LD sa geo koordinatama i telefonom
-     4. zameniti hero foto pravim video loopom (video/hero.mp4 + poster)
-     5. proveriti cene sa školom, sada su iz makete -->
+     4. proveriti cene sa školom, sada su iz makete -->
 
 <script type="application/ld+json">
 {
@@ -108,7 +109,14 @@
 <a class="skip" href="#main">Preskoči na sadržaj</a>
 
 <header class="hero">
-  <img class="hero__media" src="assets/img/hero/hero-placeholder.jpg" alt="" width="2000" height="1333" fetchpriority="high">
+  <picture>
+    <source media="(max-width: 700px)" srcset="assets/img/hero/hero-poster-640.jpg" width="640" height="800">
+    <img class="hero__media" src="assets/img/hero/hero-poster.jpg" alt="" width="1280" height="720" fetchpriority="high">
+  </picture>
+  <video class="hero__media hero__video" data-hero
+         data-wide="assets/video/hero-1280.mp4"
+         data-narrow="assets/video/hero-640.mp4"
+         muted loop playsinline preload="none" aria-hidden="true"></video>
   <div class="hero__scrim"></div>
 
   <nav class="nav" aria-label="Glavna navigacija">
@@ -127,8 +135,6 @@
     <img class="hero__logo" src="assets/img/brand/form8-logo-trim.png" alt="form.8" width="78" height="78">
     <span class="sr-only">form.8, škola hip hopa i street stylea za decu 4-14 godina u Beogradu</span>
   </h1>
-
-  <p class="hero__note">[ privremena foto, ide video loop ]</p>
 
   <div class="hero__cta">
     <a class="btn btn--acid btn--display" href="https://wa.me/381600000000?text=Zdravo%20form.8%2C%20zanima%20me%20probni%20%C4%8Das" rel="noopener">Piši nam na WhatsApp</a>
@@ -150,7 +156,7 @@
         <img class="group__ph" src="assets/img/groups/mini-youngz-360.jpg"
              srcset="assets/img/groups/mini-youngz-360.jpg 360w, assets/img/groups/mini-youngz-720.jpg 720w"
              sizes="(max-width: 520px) 100vw, (max-width: 1040px) 45vw, 340px"
-             alt="Devojčica iz grupe Mini Youngz na času" width="360" height="450">
+             alt="Devojčica iz grupe Mini Youngz na času" width="360" height="360">
         <div class="group__body">
           <h3 class="group__name">Mini Youngz</h3>
           <p class="group__meta">4-6 god, 45min</p>
@@ -162,7 +168,7 @@
         <img class="group__ph" src="assets/img/groups/kids-360.jpg"
              srcset="assets/img/groups/kids-360.jpg 360w, assets/img/groups/kids-720.jpg 720w"
              sizes="(max-width: 520px) 100vw, (max-width: 1040px) 45vw, 340px"
-             alt="Devojčica iz grupe Kids u form.8 kapi" width="360" height="450" loading="lazy" decoding="async">
+             alt="Devojčica iz grupe Kids u form.8 kapi" width="360" height="360" loading="lazy" decoding="async">
         <div class="group__body">
           <h3 class="group__name">Kids</h3>
           <p class="group__meta">7-10 god, 60min</p>
@@ -174,7 +180,7 @@
         <img class="group__ph" src="assets/img/groups/teens-360.jpg"
              srcset="assets/img/groups/teens-360.jpg 360w, assets/img/groups/teens-720.jpg 720w"
              sizes="(max-width: 520px) 100vw, (max-width: 1040px) 45vw, 340px"
-             alt="Devojka iz grupe Teens" width="360" height="450" loading="lazy" decoding="async">
+             alt="Devojka iz grupe Teens" width="360" height="360" loading="lazy" decoding="async">
         <div class="group__body">
           <h3 class="group__name">Teens</h3>
           <p class="group__meta">11-14 god, 90min</p>
@@ -186,7 +192,7 @@
         <img class="group__ph" src="assets/img/groups/funky-moms-360.jpg"
              srcset="assets/img/groups/funky-moms-360.jpg 360w, assets/img/groups/funky-moms-720.jpg 720w"
              sizes="(max-width: 520px) 100vw, (max-width: 1040px) 45vw, 340px"
-             alt="Polaznica grupe Funky Moms" width="360" height="450" loading="lazy" decoding="async">
+             alt="Polaznica grupe Funky Moms" width="360" height="360" loading="lazy" decoding="async">
         <div class="group__body">
           <h3 class="group__name">Funky Moms</h3>
           <p class="group__meta">60min</p>
