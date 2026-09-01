@@ -34,7 +34,7 @@
 <!-- TODO pre puštanja u rad:
      1. zameniti broj u wa.me linkovima pravim WhatsApp brojem
      2. zameniti Instagram i TikTok handle
-     3. dopuniti JSON-LD sa geo koordinatama i telefonom
+     3. dopuniti JSON-LD telefonom sala
      4. proveriti cene sa školom, sada su iz makete -->
 
 <script type="application/ld+json">
@@ -63,6 +63,8 @@
       "name": "form.8 Vračar",
       "parentOrganization": { "@id": "https://lazarilic.github.io/form8/#org" },
       "address": { "@type": "PostalAddress", "streetAddress": "Mileševska 42a", "addressLocality": "Beograd", "addressRegion": "Vračar", "addressCountry": "RS" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 44.7984713, "longitude": 20.4819718 },
+      "hasMap": "https://maps.app.goo.gl/GxmkrBxJBNB7VgoX9",
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "17:30", "closes": "21:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday"], "opens": "17:30", "closes": "20:00" },
@@ -75,6 +77,8 @@
       "name": "form.8 Novi Beograd",
       "parentOrganization": { "@id": "https://lazarilic.github.io/form8/#org" },
       "address": { "@type": "PostalAddress", "streetAddress": "Milentija Popovića 1", "addressLocality": "Beograd", "addressRegion": "Novi Beograd", "addressCountry": "RS" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 44.8140220, "longitude": 20.4352170 },
+      "hasMap": "https://maps.app.goo.gl/BHgirXsrQzGwyJZJ7",
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "11:00", "closes": "13:30" }
       ]
@@ -85,6 +89,8 @@
       "name": "form.8 Vidikovac",
       "parentOrganization": { "@id": "https://lazarilic.github.io/form8/#org" },
       "address": { "@type": "PostalAddress", "streetAddress": "Pilota Mihaila Petrovića 75a", "addressLocality": "Beograd", "addressRegion": "Vidikovac", "addressCountry": "RS" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 44.7421147, "longitude": 20.4173993 },
+      "hasMap": "https://maps.app.goo.gl/mXNb7coaJdxCdDgm6",
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday"], "opens": "19:00", "closes": "21:30" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "10:00", "closes": "12:30" }
@@ -220,28 +226,35 @@
           <div class="panel__row"><span class="panel__label">KIDS 2 · 7-10</span><span class="panel__time">PON / ČET · 19:00</span></div>
           <div class="panel__row"><span class="panel__label">TEENS · 11-14</span><span class="panel__time">SUB / NED · 13:00</span></div>
           <div class="panel__row"><span class="panel__label">FUNKY MOMS</span><span class="panel__time">PON · 20:00</span></div>
-          <p class="panel__foot"><span aria-hidden="true">▸</span><span class="panel__street">Mileševska 42a, KUD Gradimir</span></p>
+          <p class="panel__foot"><span aria-hidden="true">▸</span><a class="panel__street" href="https://maps.app.goo.gl/GxmkrBxJBNB7VgoX9" target="_blank" rel="noopener">Mileševska 42a, KUD Gradimir</a></p>
         </div>
 
         <div class="panel" role="tabpanel" id="panel-nbgd" aria-labelledby="tab-nbgd" tabindex="0" hidden>
           <div class="panel__row"><span class="panel__label">KIDS · 7-10</span><span class="panel__time">SUB / NED · 11:00</span></div>
           <div class="panel__row"><span class="panel__label">TEENS · 11-14</span><span class="panel__time">SUB / NED · 12:00</span></div>
-          <p class="panel__foot"><span aria-hidden="true">▸</span><span class="panel__street">Milentija Popovića 1, Urban Dance Studio</span></p>
+          <p class="panel__foot"><span aria-hidden="true">▸</span><a class="panel__street" href="https://maps.app.goo.gl/BHgirXsrQzGwyJZJ7" target="_blank" rel="noopener">Milentija Popovića 1, Urban Dance Studio</a></p>
         </div>
 
         <div class="panel" role="tabpanel" id="panel-vidikovac" aria-labelledby="tab-vidikovac" tabindex="0" hidden>
           <div class="panel__row"><span class="panel__label">KIDS · 7-10</span><span class="panel__time">SRE 19:00 / SUB 10:00</span></div>
           <div class="panel__row"><span class="panel__label">TEENS · 11-14</span><span class="panel__time">SRE 20:00 / SUB 11:00</span></div>
-          <p class="panel__foot"><span aria-hidden="true">▸</span><span class="panel__street">Pilota Mihaila Petrovića 75a</span></p>
+          <p class="panel__foot"><span aria-hidden="true">▸</span><a class="panel__street" href="https://maps.app.goo.gl/mXNb7coaJdxCdDgm6" target="_blank" rel="noopener">Pilota Mihaila Petrovića 75a</a></p>
         </div>
       </div>
 
-      <div class="map">
-        <div class="map__grid"></div>
-        <p class="map__note">[ MAPA · 3 PINA ]</p>
-        <a class="map__pin map__pin--1" href="#panel-vracar" data-loc="0">VRAČAR</a>
-        <a class="map__pin map__pin--2" href="#panel-nbgd" data-loc="1">NOVI BEOGRAD</a>
-        <a class="map__pin map__pin--3" href="#panel-vidikovac" data-loc="2">VIDIKOVAC</a>
+      <div class="map" data-map data-leaflet="assets/vendor/leaflet/" data-cta="Otvori u Google mapama">
+        <div class="map__canvas">
+          <div class="map__grid"></div>
+          <p class="map__note">[ MAPA ]</p>
+        </div>
+        <ul class="map__legend" aria-label="Lokacije na mapi">
+          <li><a class="map__pin" href="#panel-vracar" data-loc="0"
+                 data-lat="44.7984713" data-lng="20.4819718" data-address="Mileševska 42a, KUD Gradimir" data-url="https://maps.app.goo.gl/GxmkrBxJBNB7VgoX9">Vračar</a></li>
+          <li><a class="map__pin" href="#panel-nbgd" data-loc="1"
+                 data-lat="44.8140220" data-lng="20.4352170" data-address="Milentija Popovića 1, Urban Dance Studio" data-url="https://maps.app.goo.gl/BHgirXsrQzGwyJZJ7">Novi Beograd</a></li>
+          <li><a class="map__pin" href="#panel-vidikovac" data-loc="2"
+                 data-lat="44.7421147" data-lng="20.4173993" data-address="Pilota Mihaila Petrovića 75a" data-url="https://maps.app.goo.gl/mXNb7coaJdxCdDgm6">Vidikovac</a></li>
+        </ul>
       </div>
 
     </div>

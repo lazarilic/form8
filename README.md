@@ -10,11 +10,12 @@ Statična strana, bez build koraka. Sav tekst je u HTML-u, pa ga Google i AI asi
 index.html          srpska verzija
 en/index.html       engleska verzija
 assets/css/site.css sav CSS
-assets/js/site.js   tabovi za raspored (progressive enhancement)
+assets/js/site.js   tabovi za raspored, hero video i mapa (progressive enhancement)
 assets/img/brand/   logo i favicon
 assets/img/hero/    privremena hero fotografija
 assets/img/groups/  fotografije grupa
 assets/img/gallery/ galerija, još prazno
+assets/vendor/leaflet/ Leaflet 1.9.4, lokalna kopija
 docs/slike.md       pravila za slike: imena, dimenzije, isecanje
 robots.txt
 sitemap.xml
@@ -43,6 +44,32 @@ Paleta:
 
 Fontovi: Anton (naslovi), Archivo (tekst), JetBrains Mono (oznake i vremena).
 
+## Mapa
+
+Leaflet 1.9.4 sa OpenStreetMap tajlovima. Bez ključa, bez naloga i bez kartice,
+samo obavezna atribucija u uglu mape. Biblioteka stoji u `assets/vendor/leaflet/`,
+skida se tek kad sekcija Raspored dođe na ekran.
+
+Tajlovi sa `tile.openstreetmap.org` su svetli, u tamnu temu ih obrće CSS filter
+na `.leaflet-tile-pane`. `leaflet.css` se ubacuje iz JS-a, dakle posle `site.css`,
+pa sva naša pravila za Leaflet idu kroz `.map` da bi bila specifičnija.
+
+Koordinate i Google linkovi lokacija stoje u HTML-u, na pinovima ispod mape
+(`data-lat`, `data-lng`, `data-address`, `data-url`) i u JSON-LD-u:
+
+| Lokacija | Koordinate |
+|----------|-----------|
+| Vračar, Mileševska 42a, KUD Gradimir | 44.7984713, 20.4819718 |
+| Novi Beograd, Milentija Popovića 1, Urban Dance Studio | 44.8140220, 20.4352170 |
+| Vidikovac, Pilota Mihaila Petrovića 75a | 44.7421147, 20.4173993 |
+
+Bez JS-a mapa se ne učita, ali adresa u svakom panelu rasporeda vodi na Google mape.
+
+OSM tajlovi su besplatni za sajt ovog obima, uz atribuciju. Ako sajt jednog dana
+skoči na desetine hiljada pregleda mesečno, ili ako se traži dizajnirana tamna
+podloga umesto CSS filtera, ide se na MapTiler ili CARTO sa ključem, oba imaju
+besplatan nivo.
+
 ## Preview
 
 Sajt je okačen na GitHub Pages: https://lazarilic.github.io/form8/
@@ -54,7 +81,7 @@ To je preview sa placeholder podacima, pa je zaključan za pretraživače
 
 - [ ] pravi WhatsApp broj u `wa.me` linkovima
 - [ ] pravi Instagram i TikTok handle
-- [ ] adrese sve tri sale, pa dopuniti JSON-LD sa `streetAddress`, `geo` i `telephone`
+- [ ] telefon u JSON-LD-u za sve tri sale, adrese i koordinate su unete
 - [ ] video loop u herou umesto privremene fotografije
 - [ ] prave fotografije i klipovi u galeriji umesto placeholder blokova
 - [ ] potvrditi cene i termine sa školom, trenutno su iz makete
