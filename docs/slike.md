@@ -94,9 +94,10 @@ Placeholder klasa `.ph` ostaje, koristi je galerija dok ne stignu prave slike.
 Urađeno: fotografije četiri grupe u `groups/` u dve veličine, zamenjeni placeholderi
 u obe verzije sajta, CSS za `img.group__ph`.
 
+Logo je u `brand/`, hero fotografija u `hero/`, putanje u oba HTML-a su prepravljene
+(`og:image`, favicon, JSON-LD `logo`, `hero__logo`, `hero__media`).
+
 Ostaje:
 
-- premestiti `form8-logo.png` i `form8-logo-trim.png` u `brand/`, a `hero-placeholder.jpg`
-  u `hero/`. Putanje se javljaju u `index.html` i `en/index.html`
-  (`og:image`, favicon, JSON-LD `logo`, `hero__media`), sve se menja u istom koraku
+- video loop u herou umesto privremene fotografije, poster ide u `hero/`
 - prave slike i posteri za galeriju u `gallery/`

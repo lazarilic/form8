@@ -11,7 +11,8 @@ index.html          srpska verzija
 en/index.html       engleska verzija
 assets/css/site.css sav CSS
 assets/js/site.js   tabovi za raspored (progressive enhancement)
-assets/img/         logo i privremena hero fotografija
+assets/img/brand/   logo i favicon
+assets/img/hero/    privremena hero fotografija
 assets/img/groups/  fotografije grupa
 assets/img/gallery/ galerija, još prazno
 docs/slike.md       pravila za slike: imena, dimenzije, isecanje
