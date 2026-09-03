@@ -223,3 +223,34 @@
     load();
   }
 })();
+
+// Galerija: klipovi se skidaju tek kad dodju blizu ekrana, sviraju nemo u loopu
+// i pauziraju se cim izadju iz kadra. Poster stoji dok video ne krene.
+(function () {
+  'use strict';
+
+  var clips = Array.prototype.slice.call(document.querySelectorAll('[data-clip]'));
+  if (!clips.length) return;
+
+  var conn = navigator.connection || {};
+  if (conn.saveData) return;
+  if (/(^|-)2g$/.test(conn.effectiveType || '')) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  function play(v) {
+    if (!v.src) v.src = v.dataset.src;
+    v.muted = true;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) play(en.target);
+      else if (en.target.src) en.target.pause();
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.2 });
+
+  clips.forEach(function (v) { io.observe(v); });
+})();

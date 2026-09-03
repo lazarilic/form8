@@ -97,6 +97,5 @@ Logo je u `brand/`, posteri za hero video u `hero/`, putanje u oba HTML-a su pre
 (`og:image`, favicon, JSON-LD `logo`, `hero__logo`, `hero__media`). Hero video je opisan
 u `docs/video.md`.
 
-Ostaje:
-
-- prave slike i posteri za galeriju u `gallery/`
+Folder `gallery/` sada drži postere za klipove iz sekcije "Zaviri u naš svet".
+Prave se zajedno sa klipovima, opisani su u `docs/video.md`.

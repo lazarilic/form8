@@ -4,3 +4,6 @@ node_modules/
 
 # originali fotografija: isečke pravimo iz njih, sami originali ne idu u repo
 assets/img/groups/originals/
+
+# lokalni folder sa originalnim snimcima i fotografijama sa Drive-a
+drive-download-*/

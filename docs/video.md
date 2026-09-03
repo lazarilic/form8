@@ -72,3 +72,61 @@ ostaje poster.
 Scrim preko videa je pojačan (`.hero__scrim`) zato što je snimak na beloj
 pozadini, a logo i nav su svetli. Filter na `.hero__media` više nije
 `grayscale`, snimak je već crno-beli i ima tirkiznu boju brenda u sebi.
+
+# Klipovi u galeriji
+
+Sekcija "Zaviri u naš svet" ima sedam klipova, po dvanaest sekundi, bez zvuka,
+u loopu. Raspored po odnosu stranica prati imena fajlova sa Drive-a.
+
+| Slot | Klip | Izvorni fajl | Isečak |
+|------|------|--------------|--------|
+| 9:16 | `upis-540` | `9_16 X sezona Upis.mp4` | 5.5s - 17.5s |
+| 16:9 | `party-960` | `16_9 PARTY.mp4` | 78s - 90s |
+| 9:16 | `toddlerography-540` | `9_16 Toddlerography FINAL.mp4` | 8s - 20s |
+| 1:1 | `skola-640` | `Video 1_1 Škola.mp4` | 40s - 52s |
+| 1:1 | `battle-640` | `Video 1_1 Battle Form8.mp4` | 40s - 52s |
+| 1:1 | `promo-640` | `Video 1_1 Form8 Promo 9. sezona.mp4` | 8s - 20s |
+| 16:9 | `za-anu-960` | `16_9 OTER AFTER ZA ANU.mp4` | 44s - 56s |
+
+Tri fajla sa imenom `1_1` nisu snimljena kao kvadrat: `Battle` i `Promo 9. sezona`
+su 1080x1920, `Škola` je 1920x1080. Kvadrat se dobija isecanjem:
+
+- iz uspravnog kadra ide `crop=1080:1080:0:294`, dakle malo iznad sredine,
+  jer su lica u gornjoj polovini kadra
+- iz položenog kadra ide `crop=1080:1080:420:0`, tačno po sredini
+
+Škola tu gubi 44% širine, pa široki kadrovi cele grupe izlaze iz kvadrata.
+Ako to smeta, klip ide u 16:9 slot, a neki drugi u kvadrat.
+
+## Kako se prave klipovi
+
+```
+drive-download-.../          originali, folder je u .gitignore
+assets/video/gallery/        klipovi, 12s, bez zvuka
+assets/img/gallery/          posteri, prvi kadar isečka
+```
+
+Skripta je `scripts/gallery-encode.sh`. Menja se tabela `CLIPS` na vrhu:
+slug, ime fajla, početak, trajanje, ffmpeg filter, širina, visina.
+
+```bash
+bash scripts/gallery-encode.sh
+```
+
+Parametri su isti kao za hero: `hqdn3d` skida zrno, `-an` izbacuje zvuk,
+`crf 32`, `+faststart`. Ukupno oko 7.5 MB za svih sedam klipova.
+
+Rezolucije su tik iznad onoga što se stvarno prikazuje: kvadrat je na desktopu
+oko 242px, uspravni oko 226px, široki oko 430 do 715px.
+
+## Kako galerija radi na strani
+
+Svaki klip je `<video preload="none">` bez `src`, sa posterom u `poster`
+atributu. `assets/js/site.js` upisuje `src` iz `data-src` i pušta video tek kad
+klip dođe blizu ekrana, a pauzira ga kad izađe. Ista pravila kao za hero: ništa
+se ne skida kad je uključeno `prefers-reduced-motion`, `saveData` ili 2G veza,
+tada ostaje poster.
+
+Grid je flex traka po traka. U traci je `flex-grow` jednak odnosu stranica, pa
+svi klipovi u istoj traci ispadnu iste visine, a svaki zadrži svoj kadar bez
+dodatnog isecanja. Ispod 720px trake se slažu uspravno, jedan klip po redu.

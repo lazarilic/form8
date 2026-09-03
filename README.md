@@ -10,13 +10,16 @@ Statična strana, bez build koraka. Sav tekst je u HTML-u, pa ga Google i AI asi
 index.html          srpska verzija
 en/index.html       engleska verzija
 assets/css/site.css sav CSS
-assets/js/site.js   tabovi za raspored, hero video i mapa (progressive enhancement)
+assets/js/site.js   tabovi za raspored, hero video, klipovi u galeriji i mapa (progressive enhancement)
 assets/img/brand/   logo i favicon
 assets/img/hero/    privremena hero fotografija
 assets/img/groups/  fotografije grupa
-assets/img/gallery/ galerija, još prazno
+assets/img/gallery/ posteri za klipove u galeriji
 assets/vendor/leaflet/ Leaflet 1.9.4, lokalna kopija
+assets/video/       hero loop i klipovi za galeriju
+scripts/gallery-encode.sh  pravi klipove i postere za galeriju iz originala
 docs/slike.md       pravila za slike: imena, dimenzije, isecanje
+docs/video.md       hero loop i klipovi u galeriji
 robots.txt
 sitemap.xml
 ```
@@ -79,11 +82,12 @@ To je preview sa placeholder podacima, pa je zaključan za pretraživače
 
 ## Šta fali pre puštanja u rad
 
-- [ ] pravi WhatsApp broj u `wa.me` linkovima
-- [ ] pravi Instagram i TikTok handle
-- [ ] telefon u JSON-LD-u za sve tri sale, adrese i koordinate su unete
-- [ ] video loop u herou umesto privremene fotografije
-- [ ] prave fotografije i klipovi u galeriji umesto placeholder blokova
+- [x] pravi WhatsApp broj u `wa.me` linkovima, +381691408193
+- [x] pravi Instagram handle, `form8.bgd`
+- [ ] pravi TikTok handle, sada je placeholder `@form8`
+- [ ] telefon po sali u JSON-LD-u, za sada stoji jedan broj na organizaciji
+- [x] video loop u herou umesto privremene fotografije
+- [x] prave fotografije i klipovi u galeriji umesto placeholder blokova
 - [ ] potvrditi cene i termine sa školom, trenutno su iz makete
 - [ ] pravi domen u `canonical`, `hreflang`, `og:url` i `sitemap.xml`, sada pokazuju na Pages preview
 - [ ] skinuti `noindex` iz oba HTML-a i `Disallow: /` iz `robots.txt`
