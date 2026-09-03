@@ -32,10 +32,9 @@
 <link rel="preload" as="image" href="assets/img/hero/hero-poster-640.jpg" media="(max-width: 700px)" fetchpriority="high">
 
 <!-- TODO pre puštanja u rad:
-     1. zameniti broj u wa.me linkovima pravim WhatsApp brojem
-     2. zameniti Instagram i TikTok handle
-     3. dopuniti JSON-LD telefonom sala
-     4. proveriti cene sa školom, sada su iz makete -->
+     1. zameniti TikTok handle, sada je placeholder
+     2. dopuniti JSON-LD telefonom po sali, sada stoji jedan broj na organizaciji
+     3. proveriti cene sa školom, sada su iz makete -->
 
 <script type="application/ld+json">
 {
@@ -47,7 +46,8 @@
       "name": "form.8",
       "url": "https://lazarilic.github.io/form8/",
       "logo": "https://lazarilic.github.io/form8/assets/img/brand/form8-logo.png",
-      "sameAs": ["https://www.instagram.com/form8/", "https://www.tiktok.com/@form8"]
+      "telephone": "+381691408193",
+      "sameAs": ["https://www.instagram.com/form8.bgd/", "https://www.tiktok.com/@form8"]
     },
     {
       "@type": "WebSite",
@@ -101,7 +101,7 @@
       "@id": "https://lazarilic.github.io/form8/#faq",
       "mainEntity": [
         { "@type": "Question", "name": "Da li je prvi čas besplatan?", "acceptedAnswer": { "@type": "Answer", "text": "Jeste. Dete odradi ceo čas sa grupom, pa odlučujete." } },
-        { "@type": "Question", "name": "Šta dete nosi na čas?", "acceptedAnswer": { "@type": "Answer", "text": "Patike za salu, trenerku i vodu. Ništa se ne kupuje unapred." } },
+        { "@type": "Question", "name": "Šta je potrebno za čas?", "acceptedAnswer": { "@type": "Answer", "text": "Obavezne su čiste patike za salu, udobna odeća, gumica za kosu i flašica vode." } },
         { "@type": "Question", "name": "Mora li dete da ima predznanje?", "acceptedAnswer": { "@type": "Answer", "text": "Ne. Većina počinje od nule, grupe su podeljene po uzrastu." } },
         { "@type": "Question", "name": "Da li se plaća upisnina?", "acceptedAnswer": { "@type": "Answer", "text": "Ne. Plaća se samo mesečna članarina po grupi." } }
       ]
@@ -143,13 +143,13 @@
   </h1>
 
   <div class="hero__cta">
-    <a class="btn btn--acid btn--display" href="https://wa.me/381600000000?text=Zdravo%20form.8%2C%20zanima%20me%20probni%20%C4%8Das" rel="noopener">Piši nam na WhatsApp</a>
+    <a class="btn btn--acid btn--display" href="https://wa.me/381691408193?text=Zdravo%20form.8%2C%20zanima%20me%20probni%20%C4%8Das" rel="noopener">Piši nam na WhatsApp</a>
     <span class="hero__free">PRVI ČAS JE BESPLATAN</span>
   </div>
 </header>
 
 <div class="marquee" aria-hidden="true">
-  <div class="marquee__track">STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;STREET&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;</div>
+  <div class="marquee__track">Street Style plesovi&nbsp;&nbsp;·&nbsp;&nbsp;3 lokacije&nbsp;&nbsp;·&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;Street Style plesovi&nbsp;&nbsp;·&nbsp;&nbsp;3 lokacije&nbsp;&nbsp;·&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;Street Style plesovi&nbsp;&nbsp;·&nbsp;&nbsp;3 lokacije&nbsp;&nbsp;·&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;Street Style plesovi&nbsp;&nbsp;·&nbsp;&nbsp;3 lokacije&nbsp;&nbsp;·&nbsp;&nbsp;4-14 god.&nbsp;&nbsp;·&nbsp;&nbsp;</div>
 </div>
 
 <main id="main">
@@ -263,16 +263,62 @@
   <section class="section wrap" id="galerija" aria-labelledby="galerija-h">
     <div class="section__head">
       <h2 class="h2 h2--tall" id="galerija-h">Zaviri u<br>naš svet</h2>
-      <a class="section__link" href="https://www.instagram.com/form8/" rel="noopener">@form8 na Instagramu →</a>
+      <a class="section__link" href="https://www.instagram.com/form8.bgd/" rel="noopener">@form8.bgd na Instagramu →</a>
     </div>
     <div class="gallery">
-      <div class="ph gallery__tall">[ REEL 9:16 ]</div>
-      <div class="ph gallery__wide">[ VIDEO 16:9 · nastup ]</div>
-      <div class="ph">[ VIDEO 1:1 ]</div>
-      <div class="ph">[ VIDEO 1:1 ]</div>
-      <div class="ph gallery__tall">[ REEL 9:16 ]</div>
-      <div class="ph">[ VIDEO 1:1 ]</div>
-      <div class="ph gallery__wide">[ VIDEO 16:9 · sa časa ]</div>
+      <div class="gallery__band">
+        <div class="gallery__item gallery__item--9x16">
+          <video class="gallery__video" data-clip
+                 data-src="assets/video/gallery/upis-540.mp4"
+                 poster="assets/img/gallery/upis-540.jpg"
+                 width="540" height="960"
+                 muted loop playsinline preload="none" aria-label="Polaznice grupe Mini Youngz na snimanju za upis u X sezonu"></video>
+        </div>
+        <div class="gallery__item gallery__item--16x9">
+          <video class="gallery__video" data-clip
+                 data-src="assets/video/gallery/party-960.mp4"
+                 poster="assets/img/gallery/party-960.jpg"
+                 width="960" height="540"
+                 muted loop playsinline preload="none" aria-label="Nastup form.8 na velikoj sceni, cela škola na bini"></video>
+        </div>
+        <div class="gallery__item gallery__item--9x16">
+          <video class="gallery__video" data-clip
+                 data-src="assets/video/gallery/toddlerography-540.mp4"
+                 poster="assets/img/gallery/toddlerography-540.jpg"
+                 width="540" height="960"
+                 muted loop playsinline preload="none" aria-label="Trenerice na času Toddlerography u sali"></video>
+        </div>
+      </div>
+      <div class="gallery__band">
+        <div class="gallery__item gallery__item--1x1">
+          <video class="gallery__video" data-clip
+                 data-src="assets/video/gallery/skola-640.mp4"
+                 poster="assets/img/gallery/skola-640.jpg"
+                 width="640" height="640"
+                 muted loop playsinline preload="none" aria-label="Deca plešu u školskom holu"></video>
+        </div>
+        <div class="gallery__item gallery__item--1x1">
+          <video class="gallery__video" data-clip
+                 data-src="assets/video/gallery/battle-640.mp4"
+                 poster="assets/img/gallery/battle-640.jpg"
+                 width="640" height="640"
+                 muted loop playsinline preload="none" aria-label="Plesni battle form.8, dve plesačice pred publikom"></video>
+        </div>
+        <div class="gallery__item gallery__item--1x1">
+          <video class="gallery__video" data-clip
+                 data-src="assets/video/gallery/promo-640.mp4"
+                 poster="assets/img/gallery/promo-640.jpg"
+                 width="640" height="640"
+                 muted loop playsinline preload="none" aria-label="Polaznica form.8 na promo snimanju za 9. sezonu"></video>
+        </div>
+        <div class="gallery__item gallery__item--16x9">
+          <video class="gallery__video" data-clip
+                 data-src="assets/video/gallery/za-anu-960.mp4"
+                 poster="assets/img/gallery/za-anu-960.jpg"
+                 width="960" height="540"
+                 muted loop playsinline preload="none" aria-label="Nastup Za Anu, grupa na sceni pod reflektorima"></video>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -281,9 +327,14 @@
       <h2 class="outro__title" id="kontakt-h">Budi deo<br>Form8-a</h2>
       <p class="outro__lead">Pošalji nam ime deteta, uzrast i lokaciju, dobijaš odgovor za upis u što kraćem roku.</p>
       <div class="outro__buttons">
-        <a class="btn btn--ink" href="https://wa.me/381600000000?text=Zdravo%20form.8%2C%20zanima%20me%20probni%20%C4%8Das" rel="noopener">WhatsApp</a>
-        <a class="btn btn--ghost" href="https://www.instagram.com/form8/" rel="noopener">Instagram</a>
+        <a class="btn btn--ink" href="https://wa.me/381691408193?text=Zdravo%20form.8%2C%20zanima%20me%20probni%20%C4%8Das" rel="noopener">WhatsApp</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/form8.bgd/" rel="noopener">Instagram</a>
       </div>
+      <p class="outro__contact">
+        <a href="https://wa.me/381691408193" rel="noopener">+381 69 140 8193</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.instagram.com/form8.bgd/" rel="noopener">@form8.bgd</a>
+      </p>
     </div>
 
     <div class="outro__faq">
@@ -294,8 +345,8 @@
           <p class="faq__a">Jeste. Dete odradi ceo čas sa grupom, pa odlučujete.</p>
         </div>
         <div class="faq__item">
-          <h3 class="faq__q">Šta dete nosi na čas?</h3>
-          <p class="faq__a">Patike za salu, trenerku i vodu. Ništa se ne kupuje unapred.</p>
+          <h3 class="faq__q">Šta je potrebno za čas?</h3>
+          <p class="faq__a">Obavezne su čiste patike za salu, udobna odeća, gumica za kosu i flašica vode.</p>
         </div>
         <div class="faq__item">
           <h3 class="faq__q">Mora li dete da ima predznanje?</h3>
@@ -314,14 +365,14 @@
 <footer class="footer">
   <span>form.8 · street style škola · Beograd</span>
   <div class="footer__links">
-    <a href="https://www.instagram.com/form8/" rel="noopener">Instagram</a>
+    <a href="https://www.instagram.com/form8.bgd/" rel="noopener">Instagram</a>
     <a href="https://www.tiktok.com/@form8" rel="noopener">TikTok</a>
-    <a href="https://wa.me/381600000000" rel="noopener">WhatsApp</a>
+    <a href="https://wa.me/381691408193" rel="noopener">WhatsApp</a>
     <a href="en/" hreflang="en">English</a>
   </div>
 </footer>
 
-<a class="sticky-cta" href="https://wa.me/381600000000?text=Zdravo%20form.8%2C%20zanima%20me%20probni%20%C4%8Das" rel="noopener">Probni čas na WhatsApp</a>
+<a class="sticky-cta" href="https://wa.me/381691408193?text=Zdravo%20form.8%2C%20zanima%20me%20probni%20%C4%8Das" rel="noopener">Probni čas na WhatsApp</a>
 
 <script src="assets/js/site.js" defer></script>
 </body>
