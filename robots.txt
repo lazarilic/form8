@@ -1,7 +1,6 @@
 # Preview sa placeholder podacima, ne indeksirati.
-# Kad sajt ide u vazduh: obrisati Disallow, skinuti noindex iz HTML-a,
-# vratiti pravi domen u canonical, hreflang, og:url i sitemap.
+# Kad sajt ide u vazduh: obrisati Disallow i skinuti noindex iz HTML-a.
 User-agent: *
 Disallow: /
 
-Sitemap: https://lazarilic.github.io/form8/sitemap.xml
+Sitemap: https://form8.rs/sitemap.xml
