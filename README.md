@@ -75,7 +75,7 @@ besplatan nivo.
 
 ## Preview
 
-Sajt je okačen na GitHub Pages: https://lazarilic.github.io/form8/
+Sajt je okačen na GitHub Pages, na domenu https://form8.rs/
 
 To je preview sa placeholder podacima, pa je zaključan za pretraživače
 (`noindex` u oba HTML-a i `Disallow: /` u `robots.txt`).
